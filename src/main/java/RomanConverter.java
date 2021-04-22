@@ -20,18 +20,21 @@ public class RomanConverter {
     private static final int ROMAN_MIN_CONVERTIBLE_NUMBER = 1;
 
     public String convertToRoman(final int input) {
-        if (input > ROMAN_MAX_CONVERTIBLE_NUMBER) {
-            throw new IllegalArgumentException("Roman Number too great to be converted!");
-        } else if (input < ROMAN_MIN_CONVERTIBLE_NUMBER) {
-            throw new IllegalArgumentException("Zero or negative number!");
-        }
+        validatingInput(input);
 
         final StringBuilder romanSymbolBuilder = new StringBuilder();
         final StringBuilder inputReverser = new StringBuilder();
         final String givenIntegers = "" + input;
         final String reversedIntegers = inputReverser.append(givenIntegers).reverse().toString();
-
         return buildSymbol(romanSymbolBuilder, reversedIntegers);
+    }
+
+    private void validatingInput(final int input) {
+        if (input > ROMAN_MAX_CONVERTIBLE_NUMBER) {
+            throw new IllegalArgumentException("Roman Number too great to be converted!");
+        } else if (input < ROMAN_MIN_CONVERTIBLE_NUMBER) {
+            throw new IllegalArgumentException("Zero or negative number!");
+        }
     }
 
     private String buildSymbol(final StringBuilder romanSymbol, final String reversedIntegers) {
