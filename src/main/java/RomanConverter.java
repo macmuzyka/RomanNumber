@@ -41,7 +41,7 @@ public class RomanConverter {
         final int romanSize = reversedIntegers.length();
 
         final int singles = getSingles(reversedIntegers);
-        getRomanOnes(romanSymbol, singles);
+        getRomanSingles(romanSymbol, singles);
 
         if (romanSize > 1) {
             final int tens = getTens(reversedIntegers);
@@ -67,19 +67,7 @@ public class RomanConverter {
         return Integer.parseInt(String.valueOf(reversedIntegers.charAt(0)));
     }
 
-    private int getTens(final String reversedIntegers) {
-        return Integer.parseInt(String.valueOf(reversedIntegers.charAt(1)));
-    }
-
-    private int getHundreds(final String reversedIntegers) {
-        return Integer.parseInt(String.valueOf(reversedIntegers.charAt(2)));
-    }
-
-    private int getThousands(final String reversedIntegers) {
-        return Integer.parseInt(String.valueOf(reversedIntegers.charAt(3)));
-    }
-
-    private void getRomanOnes(final StringBuilder romanSymbol, final int singles) {
+    private void getRomanSingles(final StringBuilder romanSymbol, final int singles) {
         if (singles < 4) {
             romanSymbol.append(ROMAN_ONE.repeat(singles));
         } else if (singles == 4) {
@@ -95,6 +83,10 @@ public class RomanConverter {
             romanSymbol.append(ROMAN_TEN);
             romanSymbol.append(ROMAN_ONE);
         }
+    }
+
+    private int getTens(final String reversedIntegers) {
+        return Integer.parseInt(String.valueOf(reversedIntegers.charAt(1)));
     }
 
     private void getRomanTens(final StringBuilder romanSymbol, final int tens) {
@@ -115,6 +107,10 @@ public class RomanConverter {
         }
     }
 
+    private int getHundreds(final String reversedIntegers) {
+        return Integer.parseInt(String.valueOf(reversedIntegers.charAt(2)));
+    }
+
     private void getRomanHundreds(final StringBuilder romanSymbol, final int hundreds) {
         if (hundreds < 4) {
             romanSymbol.append(ROMAN_ONE_HUNDRED.repeat(hundreds));
@@ -131,6 +127,10 @@ public class RomanConverter {
             romanSymbol.append(ROMAN_ONE_THOUSAND);
             romanSymbol.append(ROMAN_ONE_HUNDRED);
         }
+    }
+
+    private int getThousands(final String reversedIntegers) {
+        return Integer.parseInt(String.valueOf(reversedIntegers.charAt(3)));
     }
 
     private void getRomanThousands(final StringBuilder romanSymbol, final int thousands) {
