@@ -1,3 +1,4 @@
+import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,9 +21,9 @@ public class RomanConverterTestForExceptions {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWithZeroOrNegativeMessage() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> converter.convertToRoman(0));
-        String expectedMessage = "Zero or negative number!";
+    public void shouldThrowOutOfBoundsExceptionWithZeroOrNegativeMessage() {
+        Exception exception = getExceptionForInvalidNumberInput(0);
+        String expectedMessage = getExpectedMessageFromExceptionThrown("Zero or negative number!");
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
@@ -30,12 +31,21 @@ public class RomanConverterTestForExceptions {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWithNumberTooGreatToBeConverted() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> converter.convertToRoman(4000));
-        String expectedMessage = "Roman Number too great to be converted!";
+    public void shouldThrowOutOfBoundsExceptionWithNumberTooGreatToBeConverted() {
+        Exception exception = getExceptionForInvalidNumberInput(4000);
+        String expectedMessage = getExpectedMessageFromExceptionThrown("Roman Number too great to be converted!");
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
         assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    private Exception getExceptionForInvalidNumberInput(final int outOfBoundsNumberToBeConverted) {
+        return assertThrows(OutOfBoundsException.class, () -> converter.convertToRoman(outOfBoundsNumberToBeConverted));
+    }
+
+    @NotNull
+    private String getExpectedMessageFromExceptionThrown(String exceptionThrownMessage) {
+        return exceptionThrownMessage;
     }
 }
