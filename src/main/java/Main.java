@@ -19,7 +19,7 @@ class Main {
                 String romanSymbol = converter.convertToRoman(input);
                 System.out.println(romanSymbol);
                 quit = true;
-            } catch (IllegalArgumentException e) {
+            } catch (OutOfBoundsException e) {
                 System.out.println(e.getMessage());
             }
         }
