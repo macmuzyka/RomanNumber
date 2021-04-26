@@ -11,14 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * TODO:
  */
 
-public class RomanConverterTestForExceptions {
+public class RomanConverterTestForExceptions extends BaseTest{
 
-    private static RomanConverter converter;
 
-    @Before
-    public void initialize() {
-        converter = new RomanConverter();
-    }
 
     @Test
     public void shouldThrowOutOfBoundsExceptionWithZeroOrNegativeMessage() {

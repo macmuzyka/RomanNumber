@@ -2,14 +2,7 @@ import org.junit.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RomanConverterTestForGivenDigits {
-
-    private static RomanConverter converter;
-
-    @Before
-    public void initialize() {
-        converter = new RomanConverter();
-    }
+public class RomanConverterTestForGivenDigits extends BaseTest{
 
     @Test
     public void shouldReturnMMMCMXCIX() {
