@@ -21,9 +21,8 @@ public class RomanConverter {
         RomanNumberValidator.validatingInput(input);
 
         final StringBuilder romanSymbolBuilder = new StringBuilder();
-        final StringBuilder inputReverser = new StringBuilder();
         final String givenIntegers = "" + input;
-        final String reversedIntegers = inputReverser.append(givenIntegers).reverse().toString();
+        final String reversedIntegers = new StringBuilder(givenIntegers).reverse().toString();
         return buildSymbol(romanSymbolBuilder, reversedIntegers);
     }
 
