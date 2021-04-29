@@ -1,5 +1,4 @@
 import org.jetbrains.annotations.NotNull;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,12 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by Maciej Muzyka
  * on 22.04.2021
- * TODO:
  */
 
 public class RomanConverterTestForExceptions extends BaseTest{
-
-
 
     @Test
     public void shouldThrowOutOfBoundsExceptionWithZeroOrNegativeMessage() {
