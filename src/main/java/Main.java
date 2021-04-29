@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -21,6 +22,9 @@ class Main {
                 quit = true;
             } catch (OutOfBoundsException e) {
                 System.out.println(e.getMessage());
+            } catch (InputMismatchException e) {
+                System.out.println("Only number can be converted!");
+                scanner.nextLine();
             }
         }
 
